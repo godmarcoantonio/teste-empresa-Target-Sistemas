@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cálculo de Juros</title>  
+</head>
+<body>
+  <h1>Cálculo de Juros por Atraso</h1>
+  <!-- Formulário para entrada do valor e data de vencimento -->
+  <form id="jurosForm">
+    Valor: <input type="number" id="valor" required step="0.01"><br>
+    Data de Vencimento: <input type="date" id="vencimento" required><br>
+    <button type="submit">Calcular Juros</button>
+  </form>
+  <div id="resultado"></div>
+  <script>
+    // Função que calcula os juros simples de 2,5% ao dia de atraso
+    function calcularJuros(valor, dataVencimento) {
+      const hoje = new Date(); // Data atual
+      const venc = new Date(dataVencimento); // Data de vencimento informada
+      // Calcula dias de atraso (0 se não houver atraso)
+      const diasAtraso = Math.max(0, Math.floor((hoje - venc) / (1000 * 60 * 60 * 24)));
+      // Juros: valor * 2,5% * dias de atraso
+      const juros = valor * 0.025 * diasAtraso;
+      return juros;
+    }
+
+    // Ao submeter o formulário, calcula e exibe o resultado
+    document.getElementById('jurosForm').onsubmit = function(e) {
+      e.preventDefault(); // Evita recarregar a página
+      const valor = parseFloat(document.getElementById('valor').value); // Valor informado
+      const venc = document.getElementById('vencimento').value; // Data informada
+      const juros = calcularJuros(valor, venc); // Calcula juros
+      // Exibe o resultado formatado
+      document.getElementById('resultado').innerText = 
+        `Juros calculado: R$ ${juros.toFixed(2)}`;
+    }
+  </script>   
+</body>
+</html>

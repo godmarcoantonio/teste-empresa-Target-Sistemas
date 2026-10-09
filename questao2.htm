@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Movimentação de Estoque</title>
+  <!-- Estilos para visualização da página e tabela -->
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; }
+    label, input, textarea, button { display: block; margin: 10px 0; }
+    #resultado { margin-top: 20px; font-weight: bold; }
+    table { margin-top: 20px; border-collapse: collapse; }
+    th, td { border: 1px solid #ccc; padding: 6px 12px; }
+  </style>
+</head>
+<body>
+  <h2>Movimentação de Estoque</h2>
+  <!-- Formulário para registrar movimentações -->
+  <form id="formMovimentacao">
+    <label for="codigoProduto">Código do Produto:</label>
+    <input type="number" id="codigoProduto" required>
+    <label for="quantidade">Quantidade (+ para entrada, - para saída):</label>
+    <input type="number" id="quantidade" required>
+    <label for="descricao">Descrição:</label>
+    <input type="text" id="descricao" required>
+    <button type="submit">Registrar Movimentação</button>
+  </form>
+  <!-- Área para mostrar resultado da movimentação -->
+  <div id="resultado"></div>
+  <h3>Movimentações</h3>
+  <!-- Tabela para exibir o histórico de movimentações -->
+  <table id="tabelaMovimentacoes">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Código</th>
+        <th>Descrição</th>
+        <th>Quantidade</th>
+        <th>Descrição Produto</th>
+        <th>Estoque Final</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <!-- Script principal da página -->
+  <script src="questao2.js"></script>
+</body>
+</html>
